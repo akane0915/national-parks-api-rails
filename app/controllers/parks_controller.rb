@@ -1,6 +1,7 @@
 class ParksController < ApplicationController
 
   def index
+
     if params[:name]
       @parks = Park.search_by_name(params[:name])
     elsif params[:state]
@@ -11,6 +12,10 @@ class ParksController < ApplicationController
       @parks = Park.search_by_fauna(params[:fauna])
     elsif params[:year]
       @parks = Park.search_by_year(params[:year])
+    elsif params[:order_by] === "oldest"
+      @parks = Park.order_by_oldest()
+    elsif params[:search] === "random"
+      @parks = Park.random_park()
     else
       @parks = Park.all
     end

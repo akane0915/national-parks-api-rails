@@ -10,4 +10,9 @@ class Park < ApplicationRecord
   scope :search_by_fauna, -> (fauna) { where("lower(fauna) like ?", "%#{fauna.downcase}%") }
 
   scope :search_by_year, -> (year) { where("year = ?", year ) }
+
+  scope :order_by_oldest, -> { order(year: :asc) }
+
+  scope :random_park, -> { order("RANDOM()").first}
+
 end

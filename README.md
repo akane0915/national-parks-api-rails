@@ -19,18 +19,16 @@ Park information includes:
 This API includes:
 - Endpoints for GET requests
 - Endpoints for POST, PATCH, PUT, DELETE requests (Authenticated Users Only)
-- A RANDOM endpoint that randomly returns a park.
-- An endpoint to allow users to search by park name.
-- Exception Handling.
-- Complete testing with request specs.
+- An endpoint that randomly returns a park.
+- Endpoints to allow users to search by park name, state, square miles, fauna, and year.
+- An Endpoint that orders the parks by oldest date (date founded).
+- Exception Handling for Errors and Success messages.
+- Testing with request specs.
 
 Additional Functionality:
 - Pagination (Will_Paginate Gem)
 - Serialization (Active_Model_Serializers Gem)
 - Authentication (Devise and JWT Gems)
-
-Endpoints (Model Scopes):
-- xyz
 
 ## Database Seeding
 
@@ -72,6 +70,8 @@ You can test the API in Postman.
 You can test API calls from your own application via the Rails Console.  See sample commands below for GET, PATCH, POST, and DELETE.
 
 ### Sample API Calls using RestClient Gem
+
+GET localhost:3000/parks?name=star
 
 `JSON.parse(RestClient.get 'http://localhost:3000/universities')`
 
