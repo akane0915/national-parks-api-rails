@@ -17,7 +17,7 @@ class ParksController < ApplicationController
 
   def update
     @park = Park.find(params[:id])
-    @park.update(park_params)
+    @park.update!(park_params)
   end
 
   def destroy
