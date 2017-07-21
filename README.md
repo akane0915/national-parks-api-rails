@@ -63,7 +63,8 @@ GET Requests:
 * GET localhost:3000/parks/1
 * GET localhost:3000/parks/1/activities
 * GET localhost:3000/parks/1/activities/1
-Using Scopes:
+
+GET Requests Using Scopes:
 * GET localhost:3000/parks?name=star
 * GET localhost:3000/parks?year=1914
 * GET localhost:3000/parks?order_by=oldest
