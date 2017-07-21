@@ -61,6 +61,7 @@ Base URL: localhost:3000/
 * GET localhost:3000/parks
 * GET localhost:3000/parks/1
 * GET localhost:3000/parks/1/activities
+* GET localhost:3000/parks/1/activities/1
 * GET localhost:3000/parks?name=star
 * GET localhost:3000/parks?year=1914
 
