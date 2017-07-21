@@ -71,7 +71,7 @@ You can test the API in Postman.
 ## Calling API from another application
 You can test API calls from your own application via the Rails Console.  See sample commands below for GET, PATCH, POST, and DELETE.
 
-### University Calls
+### Sample API Calls using RestClient Gem
 
 `JSON.parse(RestClient.get 'http://localhost:3000/universities')`
 

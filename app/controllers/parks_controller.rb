@@ -1,9 +1,21 @@
 class ParksController < ApplicationController
 
   def index
+    if params[:name]
+      @parks = Park.search_by_name(params[:name])
+    elsif params[:state]
+      @parks = Park.search_by_state(params[:state])
+    elsif params[:sq_miles]
+      @parks = Park.search_by_sq_miles(params[:sq_miles])
+    elsif params[:fauna]
+      @parks = Park.search_by_fauna(params[:fauna])
+    elsif params[:year]
+      @parks = Park.search_by_year(params[:year])
+    else
       @parks = Park.all
-      json_response(@parks)
     end
+    json_response(@parks)
+  end
 
   def show
     @park = Park.find(params[:id])
