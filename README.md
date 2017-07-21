@@ -16,9 +16,9 @@ Park information includes:
 - fauna
 - activities
 
-Endpoints:
-- Endpoints for GET requests
-- Endpoints for POST, PATCH, PUT, DELETE requests (Authenticated Users Only)
+Endpoints (See sample Postman calls below):
+- Endpoints for GET requests for Parks and Activities
+- Endpoints for POST, PATCH, PUT, DELETE requests for Parks and activities
 - Endpoints to allow users to search by park name, state, square miles, fauna, and year.
 - An endpoint that randomly returns a park.
 - An Endpoint that orders the parks by oldest date (date founded).
@@ -62,34 +62,23 @@ Base URL: localhost:3000/
 * GET localhost:3000/parks/1
 * GET localhost:3000/parks/1/activities
 * GET localhost:3000/parks/1/activities/1
+
+Using Scopes:
 * GET localhost:3000/parks?name=star
 * GET localhost:3000/parks?year=1914
+* GET localhost:3000/parks?order_by=oldest
+* GET localhost:3000/parks?search=random
 
+* POST localhost:3000/parks/?name=Yellow Stone&sq_miles=5000&state=Montana&year=1900&fauna=deer
+* POST localhost:3000/parks/1/activities/?name=Hiking&description=Fun
 
+* PATCH localhost:3000/parks/1?name=Updated Name
 
-
-`JSON.parse(RestClient.get 'http://localhost:3000/universities')`
-
-`JSON.parse(RestClient.patch 'http://localhost:3000/universities/1', {name: 'updated', description: 'desc', population: 2000, mascot: 'manbearpig'}, headers={authorization: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.MiSLJdKnnL-RB1pbM4VyqRzr629ojXQ0sXCSnWjcvI0'})`
-
-`JSON.parse(RestClient.post 'http://localhost:3000/universities', {name: 'uni', description: 'desc', population: 2000, mascot: 'manbearpig'}, headers={authorization: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.MiSLJdKnnL-RB1pbM4VyqRzr629ojXQ0sXCSnWjcvI0'})`
-
-`JSON.parse(RestClient.delete 'http://localhost:3000/universities/1', headers={authorization: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.MiSLJdKnnL-RB1pbM4VyqRzr629ojXQ0sXCSnWjcvI0'})`
-
-### Review Calls
-
-`JSON.parse(RestClient.get 'http://localhost:3000/universities/1/reviews/1')`
-
-`JSON.parse(RestClient.patch 'http://localhost:3000/universities/1/reviews/1', {author: 'updated-author'}, headers={authorization: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.MiSLJdKnnL-RB1pbM4VyqRzr629ojXQ0sXCSnWjcvI0'})`
-
-`JSON.parse(RestClient.post 'http://localhost:3000/universities/1/reviews', {author: 'Mr. NiceGuy, No-Mo', content: 'not the best school.', rating: 2 }, headers={authorization: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.MiSLJdKnnL-RB1pbM4VyqRzr629ojXQ0sXCSnWjcvI0'})`
-
-`JSON.parse(RestClient.delete 'http://localhost:3000/universities/1/reviews/1', headers={authorization: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.MiSLJdKnnL-RB1pbM4VyqRzr629ojXQ0sXCSnWjcvI0'})`
-
+* DELETE localhost:3000/parks/1
 
 ## Development server
 
-Run `bundle exec rails s` for a dev server. Test API endpoints using postman. The app will automatically reload if you change any of the source files.
+Run `bundle exec rails s` for a dev server. Test API endpoints using Postman. The app will automatically reload if you change any of the source files.
 
 * If you would like to make changes to this project, do so in a text editor.
 * Make frequent commits with detailed comments.
@@ -104,8 +93,6 @@ Run `bundle exec rspec` in terminal to test.
 
 * Ruby
 * Rails
-* JWT Gem
-* Devise
 * ActiveRecord
 * Postgres
 * Bundler
