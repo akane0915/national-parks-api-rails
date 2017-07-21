@@ -6,7 +6,7 @@
 
 ## Description
 
-This is an API that includes data for national and state parks.  It includes Authentication using Devise and JWT tokens.  It also features Pagination and Serialization to return parks.  It includes multiple scopes listed below.
+This is an API that includes data for national and state parks.  It includes Authentication using Devise and JWT tokens.  It also features Pagination and Serialization to return parks.  The application uses model scopes to return custom endpoints.
 
 Park information includes:
 - name
@@ -16,13 +16,21 @@ Park information includes:
 - fauna
 - activity
 
-Users can access:
-- GET requests for parks
+This API includes:
+- Endpoints for GET requests
+- Endpoints for POST, PATCH, PUT, DELETE requests (Authenticated Users Only)
+- A RANDOM endpoint that randomly returns a park.
+- An endpoint to allow users to search by park name.
+- Exception Handling.
+- Complete testing with request specs.
+- Sample seeded data (Faker Gem)
 
-Authenticated users can access:
-- POST, PATCH, PUT, DELETE requests for parks
+Additional Functionality:
+- Pagination (Will_Paginate Gem)
+- Serialization (Active_Model_Serializers Gem)
+- Authentication (Devise and JWT Gems)
 
-Scopes:
+Endpoints (Model Scopes):
 -
 
 ## Database Seeding
