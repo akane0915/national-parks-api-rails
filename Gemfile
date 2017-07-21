@@ -37,7 +37,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'launchy'
   gem 'shoulda-matchers'
-  gem 'factory_girl_rails'
+  gem "factory_girl_rails", "~> 4.0"
   gem 'database_cleaner'
   gem 'dotenv-rails'
 end
