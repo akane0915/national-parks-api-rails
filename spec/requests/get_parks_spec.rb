@@ -23,7 +23,7 @@ describe "get specific park route", type: :request do
 
   before { get "/parks/#{park['id']}"}
 
-  it 'returns the word success' do
+  it 'includes the park name in the response' do
     expect(response.body).to include("Yellow Stone")
   end
 
