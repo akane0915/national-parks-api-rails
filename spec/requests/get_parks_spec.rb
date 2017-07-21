@@ -16,18 +16,28 @@ describe "get all parks route", type: :request do
   end
 end
 
-DatabaseCleaner.clean
 
 describe "get specific park route", type: :request do
-  let!(:parks) { FactoryGirl.create(:park)}
+  DatabaseCleaner.clean
+  park = FactoryGirl.create(:park)
 
-  before { get '/parks/1'}
+  before { get "/parks/#{park['id']}"}
 
-  it 'returns park with id 1' do
-    expect(JSON.parse(response.body).size).to eq(1)
+  it 'returns the word success' do
+    expect(response.body).to include("Yellow Stone")
   end
 
   it 'returns status code 200' do
     expect(response).to have_http_status(200)
+  end
+end
+
+describe 'get exceptions', type: :request do
+  let!(:parks) { FactoryGirl.create_list(:park, 10)}
+
+  before { get '/parks/11' }
+
+  it 'returns status code 404' do
+    expect(response).to have_http_status 404
   end
 end

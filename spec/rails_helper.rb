@@ -8,8 +8,10 @@ require 'rspec/rails'
 require 'support/factory_girl'
 require 'database_cleaner'
 
-DatabaseCleaner.strategy = :truncation
+
+
 # Add additional requires below this line. Rails is not loaded until this point!
+Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -31,6 +33,11 @@ DatabaseCleaner.strategy = :truncation
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
+  DatabaseCleaner.strategy = :truncation
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
