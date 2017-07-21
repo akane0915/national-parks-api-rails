@@ -58,22 +58,25 @@ Run `bundle exec rails s` in your terminal
 
 Base URL: localhost:3000/
 
+GET Requests:
 * GET localhost:3000/parks
 * GET localhost:3000/parks/1
 * GET localhost:3000/parks/1/activities
 * GET localhost:3000/parks/1/activities/1
-
 Using Scopes:
 * GET localhost:3000/parks?name=star
 * GET localhost:3000/parks?year=1914
 * GET localhost:3000/parks?order_by=oldest
 * GET localhost:3000/parks?search=random
 
+POST Requests:
 * POST localhost:3000/parks/?name=Yellow Stone&sq_miles=5000&state=Montana&year=1900&fauna=deer
 * POST localhost:3000/parks/1/activities/?name=Hiking&description=Fun
 
+PATCH Request:
 * PATCH localhost:3000/parks/1?name=Updated Name
 
+DELETE Request:
 * DELETE localhost:3000/parks/1
 
 ## Development server
