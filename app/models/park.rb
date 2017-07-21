@@ -1,4 +1,6 @@
 class Park < ApplicationRecord
+  has_many :activities
+  
   validates :name, :sq_miles, :state, :year, :fauna, presence: true
 
   scope :search_by_name, -> (name) { where("lower(name) like ?", "%#{name.downcase}%") }

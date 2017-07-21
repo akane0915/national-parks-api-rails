@@ -14,8 +14,18 @@ class Seed
         year: Faker::Number.between(1872, 2000),
         fauna: Faker::ElderScrolls.creature
       )
+
+      2.times do |i|
+        park.activities.create!(
+        park_id: park.id,
+        name: Faker::SlackEmoji.activity,
+        description: Faker::Hipster.sentence
+        )
+      end
     end
+
     puts "Generated #{Park.count} parks"
+    puts "Generated #{Activity.count} activities"
   end
 end
 
