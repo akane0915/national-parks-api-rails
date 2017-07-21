@@ -23,7 +23,6 @@ This API includes:
 - An endpoint to allow users to search by park name.
 - Exception Handling.
 - Complete testing with request specs.
-- Sample seeded data (Faker Gem)
 
 Additional Functionality:
 - Pagination (Will_Paginate Gem)
@@ -31,7 +30,7 @@ Additional Functionality:
 - Authentication (Devise and JWT Gems)
 
 Endpoints (Model Scopes):
--
+- xyz
 
 ## Database Seeding
 
