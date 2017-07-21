@@ -26,7 +26,7 @@ gem 'puma', '~> 3.7'
 # gem 'rack-cors'
 
 #Project Specific Gems
-
+gem 'active_model_serializers', '~> 0.10.0'
 
 
 group :development, :test do

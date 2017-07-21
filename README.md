@@ -6,7 +6,7 @@
 
 ## Description
 
-This is an API that includes data for national and state parks.  It includes Authentication using Devise and JWT tokens.  It also features Pagination and Serialization to return parks.  The application uses model scopes to return custom endpoints.
+This is an API that includes data for national and state parks.  It features Serialization to return parks and activities nested within each park.  The application uses model scopes to return many custom endpoints.
 
 Park information includes:
 - name
@@ -14,27 +14,23 @@ Park information includes:
 - state
 - date founded
 - fauna
-- activity
+- activities
 
-This API includes:
+Endpoints:
 - Endpoints for GET requests
 - Endpoints for POST, PATCH, PUT, DELETE requests (Authenticated Users Only)
-- An endpoint that randomly returns a park.
 - Endpoints to allow users to search by park name, state, square miles, fauna, and year.
+- An endpoint that randomly returns a park.
 - An Endpoint that orders the parks by oldest date (date founded).
+
+This API includes:
 - Exception Handling for Errors and Success messages.
 - Testing with request specs.
-
-Additional Functionality:
-- Pagination (Will_Paginate Gem)
-- Serialization (Active_Model_Serializers Gem)
-- Authentication (Devise and JWT Gems)
+- Serialization (Active_Model_Serializers Gem) to return parks in JSON object form including nested Activities for each park.
 
 ## Database Seeding
 
-The application is seeded using `faker`.  It seeds 40 parks.
-
-There is one user seeded in the database with Email: "a@a.com", Password: "111111".
+The application is seeded using `faker`.  It seeds 40 parks and 2 activities for each park.
 
 ## Prerequisites
 
@@ -56,22 +52,20 @@ In your terminal:
 * `bundle exec rake db:setup`
 * `bundle exec rake db:test:prepare`
 
-This application uses JWT Tokens.  To configure, you must authenticate the seeded user to generate a token.  In your terminal, run:
+## API Sample Calls via Postman
 
-`curl -X POST -d email="a@a.com" -d password="111111" http://localhost:3000/auth_user`
+Run `bundle exec rails s` in your terminal
 
-You can test the API in Postman.
+Base URL: localhost:3000/
 
-* URL: localhost:3000/
-* Header Key: Authorization
-* Header Value: 'your-own-token-goes-here'
+* GET localhost:3000/parks
+* GET localhost:3000/parks/1
+* GET localhost:3000/parks/1/activities
+* GET localhost:3000/parks?name=star
+* GET localhost:3000/parks?year=1914
 
-## Calling API from another application
-You can test API calls from your own application via the Rails Console.  See sample commands below for GET, PATCH, POST, and DELETE.
 
-### Sample API Calls using RestClient Gem
 
-GET localhost:3000/parks?name=star
 
 `JSON.parse(RestClient.get 'http://localhost:3000/universities')`
 
